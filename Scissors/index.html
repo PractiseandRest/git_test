@@ -6,10 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./style.js"></script>
   <title>Rock Paper Scissors</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 <body>
-   <button onclick="playRound()">点击</button>
-   <button onclick="playRound()">点击</button>
-   <button onclick="playRound()">点击</button>
+    <script>
+      const body = document.querySelector('body')
+      body.style.cssText = 'width:960px; height:960px; margin:10px auto;'
+      const btn = document.createElement('button')
+      btn.textContent = '点击'
+      btn.style.cssText = 'width:70px; height:40px; display:block;'
+      body.appendChild(btn)
+      btn.addEventListener('click',num1)
+      let num = 16
+      function change() {
+        for(let i = 1; i<=num; i++) {
+        for(let i = 1; i <= num; i++) {
+        let div = document.createElement('div')
+        div.style.cssText = `border:2px solid green; width:${(960 / num)}px; height:${(960 / num)}px; display:inline-block;`
+        div.addEventListener('mouseover',()=> div.style.backgroundColor = 'red')
+        div.addEventListener('mouseleave',()=> div.style.backgroundColor = '#fff')
+        body.appendChild(div)
+       }
+      }
+      }
+      
+      function num1() {
+        num = +prompt('请输入一个每边正方形的个数')
+        num = num > 100? 100:num
+        body.innerHTML = ''
+        change()
+      }
+      change()
+
+    </script>
 </body>
 </html>
